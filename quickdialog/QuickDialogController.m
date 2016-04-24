@@ -120,9 +120,6 @@
     if (_root!=nil) {
         self.title = _root.title;
         self.navigationItem.title = _root.title;
-        if (_root.preselectedElementIndex !=nil)
-            [self.quickDialogTableView scrollToRowAtIndexPath:_root.preselectedElementIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
-
     }
 }
 
@@ -137,6 +134,10 @@
                 [cell becomeFirstResponder];
             }
         }
+    }
+
+    if (_root!=nil && _root.preselectedElementIndex!=nil) {
+        [self.quickDialogTableView scrollToRowAtIndexPath:_root.preselectedElementIndex atScrollPosition:UITableViewScrollPositionTop animated:NO];
     }
 }
 
